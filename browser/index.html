@@ -18,12 +18,16 @@
     <script src="/js/artist/artist.factory.js" defer></script>
     <script src="/js/artist/artist.states.js" defer></script>
     <script src="/js/song/song.factory.js" defer></script>
+    <script src="/js/playlist/playlist.controller.js" defer></script>
+    <script src="/js/playlist/playlist.states.js" defer></script>
+    <script src="/js/playlist/playlist.factory.js" defer></script>
+
   </head>
   <body ng-app="juke">
     <div id="main" class="container-fluid">
 
       <div class="col-xs-2">
-        <sidebar ng-controller="SidebarCtrl">
+        <sidebar >
           <img src="juke.svg" class="logo">
           <section>
             <h4 ui-sref-active="active" class="menu-item active">
@@ -39,13 +43,32 @@
           <section>
             <h4 class="text-muted">PLAYLISTS</h4>
             <p>
-              <a class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>
+              <a ui-sref="newPlaylist" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-plus"></span> PLAYLIST</a>
             </p>
           </section>
-        </sidebar>
+          </sidebar>
       </div>
 
-      <div class="col-xs-10">
+      <div ng-controller="SidebarCtrl" class="col-xs-10">
+
+<!--           <input ng-model="typedLetters">
+          <table class="table">
+            <thead>
+              <tr>
+                <th ng-repeat="letter in alphabet">
+                  <span ng-bind="letter"></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td ng-repeat="letter in alphabet">
+                  <span ng-bind="toFrequency(typedLetters)[letter]"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+
         <ui-view></ui-view>
       </div>
 
