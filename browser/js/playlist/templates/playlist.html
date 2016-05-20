@@ -1,5 +1,5 @@
 <div class="well">
-  <form class="form-horizontal" name="playlist">
+  <form class="form-horizontal" name="newPlaylist">
     <fieldset>
       <legend>New Playlist</legend>
       <div class="form-group">
@@ -10,8 +10,8 @@
       </div>
       <div class="form-group">
         <div class="col-xs-10 col-xs-offset-2">
-          <button type="submit" class="btn btn-success" ng-disabled="playlist.playlistName.$invalid" ng-click="create()">Create Playlist {{playlistName}}</button>
-          <div ng-show="playlist.playlistName.$dirty && playlist.playlistName.$invalid" class="alert-danger">Please enter a name</div>
+          <button type="submit" class="btn btn-success" ng-disabled="newPlaylist.playlistName.$invalid" ng-click="create()">Create Playlist {{playlistName}}</button>
+          <div ng-show="newPlaylist.playlistName.$dirty && newPlaylist.playlistName.$invalid" class="alert-danger">Please enter a name </div>
         </div>
       </div>
     </fieldset>

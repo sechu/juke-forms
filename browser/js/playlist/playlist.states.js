@@ -6,11 +6,23 @@ juke.config(function ($stateProvider) {
     url: '/playlists/new',
     templateUrl: '/js/playlist/templates/playlist.html',
     controller: 'PlaylistCtrl',
-    // resolve: {
-    //   allArtists: function (ArtistFactory) {
-    //     return ArtistFactory.fetchAll();
-    //   }
-    // }
+    resolve: {
+      allPlaylists : function (PlaylistFactory) {
+        return PlaylistFactory.fetchAll();
+      }
+    }
   });
 
-});
+  $stateProvider.state('singlePlaylist', {
+    url : '/playlist/:playlistId',
+    templateUrl : '/js/playlist/templates/singlePlaylist.html',
+    controller : 'PlaylistCtrl',
+      resolve: {
+      singlePlaylist : function (PlaylistFactory, $stateParams) {
+
+        return PlaylistFactory.fetchById($stateParams.playlistId);
+          }
+        }
+    })
+
+})

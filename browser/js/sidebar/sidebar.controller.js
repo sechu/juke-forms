@@ -1,17 +1,14 @@
 'use strict';
 
-juke.controller('SidebarCtrl', function ($scope) {
+juke.controller('SidebarCtrl', function ($scope, PlaylistFactory) {
 
-	// $scope.toFrequency = function (str) {
-	//   str = str || '';
-	//   return str.split('').reduce(function (freq, char) {
-	//     char = char.toLowerCase();
-	//     freq[char] = (freq[char] || 0);
-	//     freq[char]++;
-	//     return freq;
-	//   }, {});
-	// };
-	// $scope.alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+	// $scope.playlists = allPlaylists ; 
 
+	PlaylistFactory.fetchAll()
+	.then(function(playlists) {
+		$scope.playlists = playlists;
+	})
+      
 
 });
+
